@@ -1,0 +1,38 @@
+{
+    "name": "adrolli/tallui",
+    "description": "Laravel UI for the TALL-Stack",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "tall-stack",
+        "livewire",
+        "tailwindcss",
+        "livewire components"
+    ],
+    "require": {
+        "php": "^7.4",
+        "laravel/framework": "^8.0",
+        "livewire/livewire": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Alf Drollinger",
+            "email": "alf@drollinger.info"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "TallUi\\TallUi\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TallUi\\TallUi\\TallUiServiceProvider"
+            ],
+            "aliases": []
+        }
+    }
+}
