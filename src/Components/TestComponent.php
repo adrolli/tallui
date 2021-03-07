@@ -7,13 +7,8 @@ use Livewire\Component;
 class TestComponent extends Component
 {
 
-    public $label;
-
-    public function test($label)
+    public function render()
     {
-
-        $label = "TallUI";
-        return $label;
-
+        return view('tallui::test-component');
     }
 }
