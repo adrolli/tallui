@@ -1,6 +1,6 @@
 <?php
 
-namespace TallUi\TallUi;
+namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 
