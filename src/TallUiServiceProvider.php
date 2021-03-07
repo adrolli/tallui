@@ -156,23 +156,33 @@ class TallUiServiceProvider extends ServiceProvider
 
     private function registerComponents()
     {
-        $icons = [
+        $svg = [
             'logo',
         ];
 
         $components = [
-            'test',
+            'button',
+            'checkbox',
+            'input-error',
+            'input',
+            'label',
+            'validation-errors',
+            'validation-login',
+            'validation-registration',
         ];
 
-        foreach ($icons as $icon) {
-            Blade::component(self::PACKAGE_NAME . "::components.svg.{$icon}", self::PACKAGE_NAME . ".icon.{$icon}");
+        foreach ($svg as $svg) {
+            Blade::component(self::PACKAGE_NAME . "::components.svg.{$svg}", self::PACKAGE_NAME . ".svg.{$svg}");
         }
 
         foreach ($components as $component) {
             Blade::component(self::PACKAGE_NAME . "::components.{$component}", self::PACKAGE_NAME . ".{$component}");
         }
 
-        Livewire::component(self::PACKAGE_NAME . ':test-component', TestComponent::class);
+        Livewire::component(self::PACKAGE_NAME . ':main-component', TestComponent::class);
+        Livewire::component(self::PACKAGE_NAME . ':login-component', TestComponent::class);
+        Livewire::component(self::PACKAGE_NAME . ':register-component', TestComponent::class);
+        Livewire::component(self::PACKAGE_NAME . ':dashboard-component', TestComponent::class);
 
     }
 }
