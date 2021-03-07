@@ -5,6 +5,7 @@ namespace TallUi\TallUi;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use TallUi\TallUi\Components\TestComponent;
 
 class TallUiServiceProvider extends ServiceProvider
 {
