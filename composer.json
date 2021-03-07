@@ -10,7 +10,7 @@
         "livewire components"
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "laravel/framework": "^8.0",
         "livewire/livewire": "^2.0"
     },
