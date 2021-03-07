@@ -4,11 +4,11 @@ namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 
-class TestComponent extends Component
+class RegisterComponent extends Component
 {
 
     public function render()
     {
-        return view('tallui::test-component');
+        return view('tallui::register-component');
     }
 }
