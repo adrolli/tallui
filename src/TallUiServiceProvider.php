@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
-class LivewireUiServiceProvider extends ServiceProvider
+class TallUiServiceProvider extends ServiceProvider
 {
     protected const PACKAGE_NAME       = 'tallui';
 
