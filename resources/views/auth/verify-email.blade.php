@@ -1,0 +1,1 @@
+<p>This is the auth.verify-email component</p>

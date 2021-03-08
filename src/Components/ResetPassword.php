@@ -4,11 +4,11 @@ namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 
-class RegisterComponent extends Component
+class ResetPassword extends Component
 {
 
     public function render()
     {
-        return view('tallui::register-component');
+        return view('tallui::auth.reset-password');
     }
 }

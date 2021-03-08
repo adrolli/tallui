@@ -4,11 +4,11 @@ namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 
-class LoginComponent extends Component
+class ConfirmPassword extends Component
 {
 
     public function render()
     {
-        return view('tallui::login-component');
+        return view('tallui::auth.confirm-password');
     }
 }

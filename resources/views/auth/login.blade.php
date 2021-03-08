@@ -1,10 +1,5 @@
 <div class="px-4 py-8 bg-white shadow sm:rounded-md sm:px-10">
 
-    <livewire:tallui:test-component />
-
-    <x-tallui.test />
-
-
     <x-tallui.validation-login />
 
     @if (session('status'))

@@ -4,11 +4,11 @@ namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 
-class DashboardComponent extends Component
+class ForgotPassword extends Component
 {
 
     public function render()
     {
-        return view('tallui::dashboard-component');
+        return view('tallui::auth.forgot-password');
     }
 }

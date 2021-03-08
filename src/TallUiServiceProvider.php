@@ -5,33 +5,41 @@ namespace TallUi\TallUi;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use TallUi\TallUi\Components\TestComponent;
+use TallUi\TallUi\Components\Website;
+use TallUi\TallUi\Components\Dashboard;
+use TallUi\TallUi\Components\Login;
+use TallUi\TallUi\Components\Register;
+use TallUi\TallUi\Components\VerifiyEmail;
+use TallUi\TallUi\Components\ResetPassword;
+use TallUi\TallUi\Components\ForgotPassword;
+use TallUi\TallUi\Components\ConfirmPassword;
+use TallUi\TallUi\Components\TwoFactorChallenge;
 
 class TallUiServiceProvider extends ServiceProvider
 {
-    protected const PACKAGE_NAME       = 'tallui';
+    protected const PACKAGE_NAME = 'tallui';
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', self::PACKAGE_NAME);
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', self::PACKAGE_NAME);
 
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', self::PACKAGE_NAME);
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/tallui.php', self::PACKAGE_NAME
+            __DIR__ . '/../config/tallui.php', self::PACKAGE_NAME
         );
 
         $this->registerComponents();
 
         $this->publishes([
             // Config
-            __DIR__ . '/config/tallui.php' => config_path('tallui.php'),
+            __DIR__ . '/../config/tallui.php' => config_path('tallui.php'),
 
             // Views
-            __DIR__ . '/resources/views' => resource_path('views/vendor/' . self::PACKAGE_NAME),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/' . self::PACKAGE_NAME),
 
             // Translations
-            __DIR__ . '/resources/lang' => resource_path('lang/vendor/' . self::PACKAGE_NAME),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . self::PACKAGE_NAME),
         ], self::PACKAGE_NAME);
     }
 
@@ -179,10 +187,15 @@ class TallUiServiceProvider extends ServiceProvider
             Blade::component(self::PACKAGE_NAME . "::components.{$component}", self::PACKAGE_NAME . ".{$component}");
         }
 
-        Livewire::component(self::PACKAGE_NAME . ':main-component', TestComponent::class);
-        Livewire::component(self::PACKAGE_NAME . ':login-component', TestComponent::class);
-        Livewire::component(self::PACKAGE_NAME . ':register-component', TestComponent::class);
-        Livewire::component(self::PACKAGE_NAME . ':dashboard-component', TestComponent::class);
+        Livewire::component(self::PACKAGE_NAME . ':website', Website::class);
+        Livewire::component(self::PACKAGE_NAME . ':dashboard', Dashboard::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.login', Login::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.register', Register::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.verify-email', VerifiyEmail::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.reset-password', ResetPassword::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.forgot-password', ForgotPassword::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.confirm-password', ConfirmPassword::class);
+        Livewire::component(self::PACKAGE_NAME . ':auth.two-factor-challenge', TwoFactorChallenge::class);
 
     }
 }
