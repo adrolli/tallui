@@ -160,14 +160,15 @@ class TallUiServiceProvider extends ServiceProvider
         ];
 
         $components = [
+            'input',
+            'label',
             'button',
             'checkbox',
             'input-error',
-            'input',
-            'label',
             'validation-errors',
-            'validation-login',
-            'validation-registration',
+            'auth.social-auth',
+            'auth.validation-login',
+            'auth.validation-registration',
         ];
 
         $main_components = [

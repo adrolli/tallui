@@ -12,7 +12,7 @@ return [
     */
 
     'or' => 'oder',
-    'email_address' => "Email Adresse",
+    'email_address' => "Email-Adresse",
     'password' => 'Passwort',
 
 ];
