@@ -179,6 +179,21 @@ class TallUiServiceProvider extends ServiceProvider
             'validation-registration',
         ];
 
+        $main_components = [
+            'website' => 'Website',
+            'dashboard' => 'Dashboard',
+        ];
+        
+        $auth_components = [
+            'login' => 'Login',
+            'register' => 'Register',
+            'verify-email' => '',
+            'reset-password' => 'ResetPassword',
+            'forgot-password' => 'ForgotPassword',
+            'confirm-password' => 'ConfirmPassword',
+            'two-factor-challenge' => 'TwoFactorChallenge',
+        ];
+
         foreach ($svg as $svg) {
             Blade::component(self::PACKAGE_NAME . "::components.svg.{$svg}", self::PACKAGE_NAME . ".svg.{$svg}");
         }
@@ -187,15 +202,13 @@ class TallUiServiceProvider extends ServiceProvider
             Blade::component(self::PACKAGE_NAME . "::components.{$component}", self::PACKAGE_NAME . ".{$component}");
         }
 
-        Livewire::component(self::PACKAGE_NAME . ':website', Website::class);
-        Livewire::component(self::PACKAGE_NAME . ':dashboard', Dashboard::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.login', Login::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.register', Register::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.verify-email', VerifiyEmail::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.reset-password', ResetPassword::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.forgot-password', ForgotPassword::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.confirm-password', ConfirmPassword::class);
-        Livewire::component(self::PACKAGE_NAME . ':auth.two-factor-challenge', TwoFactorChallenge::class);
+        foreach ($main_components as $main_component => $main_controller) {
+            Livewire::component(self::PACKAGE_NAME . ":{$main_component}", "{$main_controller}::class");
+        }
+
+        foreach ($auth_components as $auth_component) {
+            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", "{$auth_controller}"::class);
+        }
 
     }
 }

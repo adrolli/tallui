@@ -7,24 +7,40 @@
         "tall-stack",
         "livewire",
         "tailwindcss",
-        "livewire components"
+        "livewire components",
+        "laravel package",
+        "boilerplate",
+        "ui",
+        "bootstrap",
+        "php",
+        "package"
     ],
-    "require": {
-        "php": "^7.4|^8.0",
-        "laravel/framework": "^8.0",
-        "livewire/livewire": "^2.0"
-    },
+    "homepage": "https://www.alfdrollinger.com",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alf Drollinger",
             "email": "alf@drollinger.info"
         }
     ],
-    "license": "MIT",
-    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.0",
+        "livewire/livewire": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^9.3",
+        "spatie/test-time": "^1.2"
+    },
     "autoload": {
         "psr-4": {
             "TallUi\\TallUi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TallUi\\TallUi\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -34,5 +50,14 @@
             ],
             "aliases": []
         }
-    }
+    },
+    "scripts": {
+       "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
