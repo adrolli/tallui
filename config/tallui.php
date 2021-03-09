@@ -1,10 +1,17 @@
 <?php
 
 return [
-    'time_format'                 => env('TIME_FORMAT', 'h:ia'),
-    'date_format'                 => env('DATE_FORMAT', 'm/d/Y'),
-    'datetime_format'             => env('DATETIME_FORMAT', 'm/d/Y h:ia'),
-    'placeholder_time_format'     => env('PLACEHOLDER_TIME_FORMAT', '12:30pm'),
-    'placeholder_date_format'     => env('PLACEHOLDER_DATE_FORMAT', 'mm/dd/yyyy'),
-    'placeholder_datetime_format' => env('PLACEHOLDER_DATETIME_FORMAT', 'mm/dd/yyyy 12:30pm'),
+ 
+     /*
+     * After how many login attempts should we force the user to wait for 'login_wait_time'.
+     */
+     
+    'login_wait_after_attempts' => env('TALLUI_LOGIN_WAIT_AFTER_ATTEMPTS', 10),
+
+     /*
+     * For how long should we force the user to wait, if he failed to login for 'login_wait_after_attempts' time.
+     */
+     
+    'login_wait_time' => env('TALLUI_LOGIN_WAIT_TIME', 60),
+    
 ];

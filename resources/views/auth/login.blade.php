@@ -19,7 +19,7 @@
     </p>
     @endif
 
-    <form wire:submit.prevent="submitForm" class="space-y-6" method="POST" action="{{ route('login') }}">
+    <form wire:submit.prevent="submitLogin" class="space-y-6" method="POST" action="{{ route('login') }}">
         @csrf
 
     <div>
