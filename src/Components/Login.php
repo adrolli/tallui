@@ -16,7 +16,6 @@ class Login extends Component
 
     public function submitLogin()
     {
-        ray('My first ray call');
 
         if (Auth::attempt(array('email' => $this->email, 'password' => $this->password))) {
 
