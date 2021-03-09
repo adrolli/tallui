@@ -206,8 +206,8 @@ class TallUiServiceProvider extends ServiceProvider
             Livewire::component(self::PACKAGE_NAME . ":{$main_component}", "{$main_controller}::class");
         }
 
-        foreach ($auth_components as $auth_component) {
-            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", "{$auth_controller}"::class);
+        foreach ($auth_components as $auth_component => $auth_controller) {
+            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", "{$auth_controller}::class");
         }
 
     }
