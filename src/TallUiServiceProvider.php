@@ -14,7 +14,7 @@ class TallUiServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', self::PACKAGE_NAME);
 
-        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', self::PACKAGE_NAME);
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', self::PACKAGE_NAME);
 
         $this->mergeConfigFrom(__DIR__ . '/../config/tallui.php', self::PACKAGE_NAME);
 

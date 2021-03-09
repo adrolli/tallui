@@ -4,6 +4,7 @@ namespace TallUi\TallUi\Components;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 use TallUi\TallUi\Traits\Auth\LetWait;
 
 class Login extends Component
@@ -30,7 +31,7 @@ class Login extends Component
 
             $this->letWait($attempts);
 
-            session()->flash('error', 'User and password do not match.');
+            session()->flash('error', trans('tallui::auth.login_error'));
 
         }
 

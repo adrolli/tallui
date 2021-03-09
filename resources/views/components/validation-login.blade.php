@@ -38,12 +38,12 @@
 
                       <template x-if="countdown > 0">
                         <div>
-                            Please wait <span x-text="countdown"></span> seconds until your next retry.
+                            {!! __('tallui::auth.please_wait_seconds', ['seconds' => '<span x-text="countdown"></span>']) !!}
                         </div>
                      </template>
 
                      <template x-if="countdown === 0">
-                            You may retry now.
+                            {{ __('tallui::auth.retry_now') }}
                     </template>
 
                    </div>
