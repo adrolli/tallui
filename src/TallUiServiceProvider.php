@@ -5,15 +5,6 @@ namespace TallUi\TallUi;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use TallUi\TallUi\Components\Website;
-use TallUi\TallUi\Components\Dashboard;
-use TallUi\TallUi\Components\Login;
-use TallUi\TallUi\Components\Register;
-use TallUi\TallUi\Components\VerifiyEmail;
-use TallUi\TallUi\Components\ResetPassword;
-use TallUi\TallUi\Components\ForgotPassword;
-use TallUi\TallUi\Components\ConfirmPassword;
-use TallUi\TallUi\Components\TwoFactorChallenge;
 
 class TallUiServiceProvider extends ServiceProvider
 {
@@ -25,13 +16,12 @@ class TallUiServiceProvider extends ServiceProvider
 
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', self::PACKAGE_NAME);
 
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/tallui.php', self::PACKAGE_NAME
-        );
+        $this->mergeConfigFrom(__DIR__ . '/../config/tallui.php', self::PACKAGE_NAME);
 
         $this->registerComponents();
 
         $this->publishes([
+
             // Config
             __DIR__ . '/../config/tallui.php' => config_path('tallui.php'),
 
@@ -40,6 +30,7 @@ class TallUiServiceProvider extends ServiceProvider
 
             // Translations
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . self::PACKAGE_NAME),
+            
         ], self::PACKAGE_NAME);
     }
 
@@ -50,7 +41,7 @@ class TallUiServiceProvider extends ServiceProvider
 
     private function registerScripts()
     {
-        Blade::directive('livewireUiAssets', function () {
+        Blade::directive('tallUiAssets', function () {
             return <<<'HTML'
                 <style>
                     .tallui {
@@ -81,7 +72,7 @@ class TallUiServiceProvider extends ServiceProvider
                         }
                     }
 
-                    window.$livewireUi = {
+                    window.$tallUi = {
                         modal: options => {
                             Promise.prototype.onClose = Promise.prototype.then
 
@@ -187,7 +178,7 @@ class TallUiServiceProvider extends ServiceProvider
         $auth_components = [
             'login' => 'Login',
             'register' => 'Register',
-            'verify-email' => '',
+            'verify-email' => 'VerifyEmail',
             'reset-password' => 'ResetPassword',
             'forgot-password' => 'ForgotPassword',
             'confirm-password' => 'ConfirmPassword',
@@ -203,12 +194,13 @@ class TallUiServiceProvider extends ServiceProvider
         }
 
         foreach ($main_components as $main_component => $main_controller) {
-            Livewire::component(self::PACKAGE_NAME . ":{$main_component}", "{$main_controller}::class");
+            Livewire::component(self::PACKAGE_NAME . ":{$main_component}", 'TallUi\TallUi\Components\\' . $main_controller);
         }
 
         foreach ($auth_components as $auth_component => $auth_controller) {
-            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", "{$auth_controller}::class");
+            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", 'TallUi\TallUi\Components\\' . $auth_controller);
         }
+
 
     }
 }
