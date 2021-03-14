@@ -15,7 +15,7 @@
     @if (Route::has('register'))
     <p class="mt-2 text-sm text-center text-gray-600 max-w">
         {{ __('tallui::main.or') }}
-            <a href="{{ route('register') }}" class="font-medium text-cyan-700 hover:text-cyan-500">{{ __('tallui::auth.register_free') }}</a>
+            <a href="{{ route('register') }}" class="font-medium text-primary-700 hover:text-primary-500">{{ __('tallui::auth.register_free') }}</a>
     </p>
     @endif
 
@@ -46,7 +46,7 @@
 
             <div class="text-sm">
                 @if (Route::has('password.request'))
-                <a class="font-medium text-cyan-600 hover:text-cyan-500" href="{{ route('password.request') }}">
+                <a class="font-medium text-primary-600 hover:text-primary-500" href="{{ route('password.request') }}">
                     {{ __('tallui::auth.forgot_your_password') }}
                 </a>
             @endif
@@ -56,7 +56,7 @@
         <div>
             <x-tallui.button type="submit" value="{{ __('tallui::auth.signin') }}" class="disableme" />
         </div>
-        
+
     </form>
 
     <!-- TODO: Social Login -->
