@@ -1,4 +1,5 @@
-<div class="px-4 py-8 bg-white shadow sm:rounded-md sm:px-10">
+
+    <div class="px-4 py-8 bg-white shadow sm:rounded-md sm:px-10">
 
     <x-tallui.auth.validation-login />
 
@@ -23,22 +24,22 @@
         @csrf
 
         <div>
-            <x-tallui.label for="email" value="{{ __('tallui::main.email_address') }}" />
+            <x-tallui.form.label for="email" value="{{ __('tallui::main.email_address') }}" />
             <div class="mt-1">
-                <x-tallui.input wire:model.defer="email" id="email" name="email" type="email" autocomplete="email" required :value="old('email')" autofocus class="disableme" />
+                <x-tallui.form.input wire:model.defer="email" id="email" name="email" type="email" autocomplete="email" required :value="old('email')" autofocus class="disableme" />
             </div>
         </div>
 
         <div>
-            <x-tallui.label for="password" value="{{ __('tallui::main.password') }}" />
+            <x-tallui.form.label for="password" value="{{ __('tallui::main.password') }}" />
             <div class="mt-1">
-                <x-tallui.input wire:model.defer="password" id="password" class="disableme" type="password" name="password" required autocomplete="current-password" class="disableme" />
+                <x-tallui.form.input wire:model.defer="password" id="password" class="disableme" type="password" name="password" required autocomplete="current-password" class="disableme" />
             </div>
         </div>
 
         <div class="flex items-center justify-between">
             <div class="flex items-center">
-                <x-tallui.checkbox id="remember_me" name="remember_me" class="disableme" />
+                <x-tallui.form.checkbox id="remember_me" name="remember_me" class="disableme" />
                 <label for="remember_me" class="block ml-2 text-sm text-gray-900">
                     {{ __('tallui::auth.remember_me') }}
                 </label>
@@ -54,7 +55,7 @@
         </div>
 
         <div>
-            <x-tallui.button type="submit" value="{{ __('tallui::auth.signin') }}" class="disableme" />
+            <x-tallui.form.button type="submit" value="{{ __('tallui::auth.signin') }}" class="disableme" />
         </div>
 
     </form>

@@ -30,7 +30,7 @@ class TallUiServiceProvider extends ServiceProvider
 
             // Translations
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . self::PACKAGE_NAME),
-            
+
         ], self::PACKAGE_NAME);
     }
 
@@ -155,27 +155,37 @@ class TallUiServiceProvider extends ServiceProvider
 
     private function registerComponents()
     {
-        $svg = [
+
+        $layouts = [
+            'app',
+            'guest',
+            'website',
+        ];
+
+        $svgs = [
             'logo',
         ];
 
         $components = [
-            'input',
-            'label',
-            'button',
-            'checkbox',
-            'input-error',
-            'validation-errors',
+            'form.input',
+            'form.label',
+            'form.button',
+            'form.checkbox',
+            'message.input-error',
+            'message.validation-errors',
             'auth.social-auth',
             'auth.validation-login',
             'auth.validation-registration',
+            'theme.color',
+            'theme.colorset',
+            'cta.button',
         ];
 
         $main_components = [
             'website' => 'Website',
             'dashboard' => 'Dashboard',
         ];
-        
+
         $auth_components = [
             'login' => 'Login',
             'register' => 'Register',
@@ -186,7 +196,15 @@ class TallUiServiceProvider extends ServiceProvider
             'two-factor-challenge' => 'TwoFactorChallenge',
         ];
 
-        foreach ($svg as $svg) {
+        $theme_components = [
+            'theme-info' => 'ThemeInfo',
+        ];
+
+        foreach ($layouts as $layout) {
+            Blade::component(self::PACKAGE_NAME . "::layouts.{$layout}", self::PACKAGE_NAME . ".layouts.{$layout}");
+        }
+
+        foreach ($svgs as $svg) {
             Blade::component(self::PACKAGE_NAME . "::components.svg.{$svg}", self::PACKAGE_NAME . ".svg.{$svg}");
         }
 
@@ -199,9 +217,12 @@ class TallUiServiceProvider extends ServiceProvider
         }
 
         foreach ($auth_components as $auth_component => $auth_controller) {
-            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", 'TallUi\TallUi\Components\\' . $auth_controller);
+            Livewire::component(self::PACKAGE_NAME . ":auth.{$auth_component}", 'TallUi\TallUi\Components\Auth\\' . $auth_controller);
         }
 
+        foreach ($theme_components as $theme_component => $theme_controller) {
+            Livewire::component(self::PACKAGE_NAME . ":theme.{$theme_component}", 'TallUi\TallUi\Components\Theme\\' . $theme_controller);
+        }
 
     }
 }

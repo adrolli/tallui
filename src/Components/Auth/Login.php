@@ -1,6 +1,6 @@
 <?php
 
-namespace TallUi\TallUi\Components;
+namespace TallUi\TallUi\Components\Auth;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
