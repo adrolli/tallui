@@ -164,6 +164,8 @@ class TallUiServiceProvider extends ServiceProvider
 
         $svgs = [
             'logo',
+            'plexus',
+            'background',
         ];
 
         $components = [
@@ -179,6 +181,8 @@ class TallUiServiceProvider extends ServiceProvider
             'theme.color',
             'theme.colorset',
             'cta.button',
+            'footer.default',
+            'header.default',
         ];
 
         $main_components = [
@@ -198,6 +202,9 @@ class TallUiServiceProvider extends ServiceProvider
 
         $theme_components = [
             'theme-info' => 'ThemeInfo',
+            'components' => 'Components',
+            'get-it' => 'GetIt',
+            'docs' => 'Docs',
         ];
 
         foreach ($layouts as $layout) {
